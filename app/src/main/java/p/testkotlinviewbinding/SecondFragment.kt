@@ -1,6 +1,7 @@
 package p.testkotlinviewbinding
 
 
+import android.app.Activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -24,7 +25,7 @@ class SecondFragment : Fragment() {
             .collection("users")
             .document("1")
             .get()
-            .addOnSuccessListener { doc ->
+            .addOnSuccessListener(getActivity() as Activity) { doc ->
                 my_text_view.text = doc["name"] as String
             }
     }
